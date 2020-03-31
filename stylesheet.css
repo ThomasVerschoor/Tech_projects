@@ -144,12 +144,31 @@ body, html {
   clear: both;
 }
 
-/* Blogartikesl : Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
+/*-----------------------------------
+		content
+------------------------------------*/
+
+.center{
+  text-align: center;
+  font-size: 19px;
 }
+
+.imgsize{
+  height: 105px;
+  width: 200px;
+}
+
+/*-----------------------------------
+		makers
+------------------------------------*/
+
+.imgrnd {
+  border-radius: 50%;
+  height:120px;
+  width: 120px;
+
+}
+
 
 /*-----------------------------------
 		Footer
@@ -180,4 +199,22 @@ body, html {
 
 #footerLogoText{
 	line-height:30px;
+}
+
+/*-----------------------------------
+		maker.html
+------------------------------------*/
+
+.container{
+    padding:5%;
+}
+.container .img{
+    text-align:center;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
 }
