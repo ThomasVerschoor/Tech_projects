@@ -14,6 +14,7 @@ fetch("https://thomasverschoor.github.io/TechProjectsCMS/")
 
 
 function writeToWebPage(data) {
+  console.log("Start function")
 
   var container = document.getElementById("projectsList");
 
