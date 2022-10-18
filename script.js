@@ -1,20 +1,19 @@
+
+// write projects to webpage
 function writeToWebPage(data) {
-  console.log("Start function")
 
   var container = document.getElementById("projectsList");
 
   projects = data["projects"]
   for (elem of projects)
         {
-            // Print the current element
-            console.log(elem["title"]);
             let tableBody = document.getElementById("tableBody");
             tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td></tr>';
         }
 
 }
 
-
+//fetches all data
 fetch("https://thomasverschoor.github.io/TechProjectsCMS/")
   .then((response) => {
     if (response.ok) {
@@ -24,7 +23,6 @@ fetch("https://thomasverschoor.github.io/TechProjectsCMS/")
     }
   })
   .then(data => {
-    console.log(data);
     writeToWebPage(data)
   })
   .catch((error) => console.error("FETCH ERROR:", error));
