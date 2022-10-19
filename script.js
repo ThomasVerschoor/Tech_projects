@@ -3,12 +3,14 @@
 function writeToWebPage(data) {
 
   var container = document.getElementById("projectsList");
+  console.log(data)
 
   projects = data["projects"]
   for (elem of projects)
         {
+            console.log(elem)
             let tableBody = document.getElementById("tableBody");
-            tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td></tr>';
+            tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' + elem["author"] + '</td></tr>';
         }
 
 }
