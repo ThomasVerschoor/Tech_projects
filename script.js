@@ -1,18 +1,16 @@
 
 // write projects to webpage
-function writeToWebPage(data) {
-
+function writeToWebPage(data)
+{
   var container = document.getElementById("projectsList");
-  console.log(data)
 
   projects = data["projects"]
   for (elem of projects)
         {
-            console.log(elem)
             let tableBody = document.getElementById("tableBody");
-            tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' + elem["author"] + '</td></tr>';
+            let href = "author.html?="+elem["author"]
+            tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' +'<a href='+href+'>'+elem["author"]+'</a>' +'</td></tr>' ;
         }
-
 }
 
 //fetches all data
