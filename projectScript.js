@@ -18,6 +18,11 @@ function loadProjectToWebPage(data)
           {
             let tableBody = document.getElementById("tableBody");
             tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' +elem["author"]+'</td></tr>' ;
+
+            // set thumbnail image to image on the webpage
+            document.getElementById("thumbNailImage").src = elem["imageLink"];
+
+
           }
         }
 }
