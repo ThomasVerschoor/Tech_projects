@@ -8,8 +8,9 @@ function writeToWebPage(data)
   for (elem of projects)
         {
             let tableBody = document.getElementById("tableBody");
-            let href = "author.html?="+elem["author"]
-            tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' +'<a href='+href+'>'+elem["author"]+'</a>' +'</td></tr>' ;
+            let hrefAuthor = "author.html?="+elem["author"]
+            let hrefProject = "project.html?="+elem["projectID"]
+            tableBody.innerHTML += '<tr><td>' +'<a href='+hrefProject+'>'+elem["title"]+'</a>' + '</td><td>' + elem["dateCreated"] + '</td><td>' +'<a href='+hrefAuthor+'>'+elem["author"]+'</a>' +'</td></tr>' ;
         }
 }
 
