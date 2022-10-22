@@ -16,12 +16,16 @@ function loadProjectToWebPage(data)
         {
           if (new String(elem["projectID"]).valueOf() == new String(projectID).valueOf())
           {
-            let tableBody = document.getElementById("tableBody");
-            tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' +elem["author"]+'</td></tr>' ;
+
+            //set the title of the project
+            document.getElementById("projectTitle").innerHTML = elem["title"];
 
             // set thumbnail image to image on the webpage
             document.getElementById("thumbNailImage").src = elem["imageLink"];
 
+            //load table containing info
+            let tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' +elem["author"]+'</td></tr>' ;
 
           }
         }
