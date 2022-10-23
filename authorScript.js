@@ -18,6 +18,9 @@ function loadAuthorToWebPage(data)
             let tableBody = document.getElementById("tableBody");
             tableBody.innerHTML += '<tr><td>' + elem["author"] + '</td><td>' + elem["imageLink"] + '</td><td>' +elem["shortBio"]+'</td></tr>' ;
 
+            // set author name on the webpage
+            document.getElementById("authorName").innerHTML = "User profile of: "+elem["author"];
+
             // set profile image to image on the webpage
             document.getElementById("profileImage").src = elem["imageLink"];
 
