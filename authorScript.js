@@ -17,6 +17,10 @@ function loadAuthorToWebPage(data)
           {
             let tableBody = document.getElementById("tableBody");
             tableBody.innerHTML += '<tr><td>' + elem["author"] + '</td><td>' + elem["imageLink"] + '</td><td>' +elem["shortBio"]+'</td></tr>' ;
+
+            // set profile image to image on the webpage
+            document.getElementById("profileImage").src = elem["imageLink"];
+
           }
         }
 }
