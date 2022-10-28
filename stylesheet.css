@@ -163,6 +163,12 @@ img{
   width: 200px;
 }
 
+/* set project content in the middle of the webpage */
+.centeredProjects{
+  width:80%;
+  margin:auto;
+}
+
 /*-----------------------------------
 		makers
 ------------------------------------*/
