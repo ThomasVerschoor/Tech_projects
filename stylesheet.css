@@ -44,6 +44,13 @@ text-align: center;
   text-decoration: none;
 }
 
+/* Create a right-aligned (split) link inside the navigation bar */
+.navbar a.split {
+  float: right;
+  background-color: #04AA6D;
+  color: white;
+}
+
 /* The dropdown container */
 .dropdown {
   float: left;
@@ -96,6 +103,7 @@ text-align: center;
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 
 /*-----------------------------------
 		Header picture
