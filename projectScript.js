@@ -1,4 +1,35 @@
 
+function fetchMDfile(link)
+{
+  return fetch(link)
+}
+
+// load markdown file to writeToWebPage
+function loadMarkDownToWebPage(projectID)
+{
+
+  var projectContent = document.getElementById("projectContent");
+
+  var URL = "https://raw.githubusercontent.com/ThomasVerschoor/TechProjectsCMS/master/Projects/"
+  URL += projectID
+  URL += ".md"
+
+  const textMD = fetchMDfile(URL)
+  textMD.then(response => response.text())
+  .then(text => {
+
+    converter = new showdown.Converter(),
+    html = converter.makeHtml(text);
+
+    projectContent.innerHTML = html;
+
+  })
+  .catch(error => {
+    //handle error
+  });
+
+}
+
 // load project to webpage
 function loadProjectToWebPage(data)
 {
@@ -27,40 +58,13 @@ function loadProjectToWebPage(data)
             let tableBody = document.getElementById("tableBody");
             tableBody.innerHTML += '<tr><td>' + elem["title"] + '</td><td>' + elem["dateCreated"] + '</td><td>' +elem["author"]+'</td></tr>' ;
 
+            loadMarkDownToWebPage(elem["projectID"])
+
           }
         }
 }
 
-function fetchMDfile(link)
-{
-  return fetch(link)
-}
 
-// load markdown file to writeToWebPage
-function loadMarkDownToWebPage(data)
-{
-
-  var projectContent = document.getElementById("projectContent");
-
-  const textMD = fetchMDfile("https://raw.githubusercontent.com/ThomasVerschoor/BetterNav/main/README.md")
-  textMD.then(response => response.text())
-  .then(text => {
-
-    converter = new showdown.Converter(),
-    html = converter.makeHtml(text);
-
-    projectContent.innerHTML = html;
-    
-  })
-  .catch(error => {
-    //handle error
-  });
-
-
-
-
-
-}
 
 //fetches all data
 fetch("https://thomasverschoor.github.io/TechProjectsCMS/")
@@ -73,6 +77,5 @@ fetch("https://thomasverschoor.github.io/TechProjectsCMS/")
   })
   .then(data => {
     loadProjectToWebPage(data)
-    loadMarkDownToWebPage(data)
   })
   .catch((error) => console.error("FETCH ERROR:", error));
