@@ -31,6 +31,37 @@ function loadProjectToWebPage(data)
         }
 }
 
+function fetchMDfile(link)
+{
+  return fetch(link)
+}
+
+// load markdown file to writeToWebPage
+function loadMarkDownToWebPage(data)
+{
+
+  var projectContent = document.getElementById("projectContent");
+
+  const textMD = fetchMDfile("https://raw.githubusercontent.com/ThomasVerschoor/BetterNav/main/README.md")
+  textMD.then(response => response.text())
+  .then(text => {
+
+    converter = new showdown.Converter(),
+    html = converter.makeHtml(text);
+
+    projectContent.innerHTML = html;
+    
+  })
+  .catch(error => {
+    //handle error
+  });
+
+
+
+
+
+}
+
 //fetches all data
 fetch("https://thomasverschoor.github.io/TechProjectsCMS/")
   .then((response) => {
@@ -42,5 +73,6 @@ fetch("https://thomasverschoor.github.io/TechProjectsCMS/")
   })
   .then(data => {
     loadProjectToWebPage(data)
+    loadMarkDownToWebPage(data)
   })
   .catch((error) => console.error("FETCH ERROR:", error));
