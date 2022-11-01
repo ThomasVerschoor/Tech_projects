@@ -171,6 +171,12 @@ img{
   margin:auto;
 }
 
+/* set components content in the middle of the webpage */
+.centeredComponents{
+  width:80%;
+  margin:auto;
+}
+
 /* set all authors in the middle of the webpage */
 .centeredAuthors{
   width:80%;
