@@ -155,14 +155,10 @@ body, html {
   font-size: 19px;
 }
 
-.imgsize{
-  height: 105px;
-  width: 200px;
-}
 
 img{
-  height: 170px;
-  width: 200px;
+  height: 240px;
+  width: 360px;
 }
 
 /* set project content in the middle of the webpage */
