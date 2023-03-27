@@ -1,3 +1,33 @@
+function fetchMDfile(link)
+{
+  return fetch(link)
+}
+
+// load markdown file to writeToWebPage
+function loadMarkDownToWebPage(componentID)
+{
+
+  var componentContent = document.getElementById("componentContent");
+
+  var URL = "https://raw.githubusercontent.com/ThomasVerschoor/TechProjectsCMS/master/Components/"
+  URL += componentID
+  URL += ".md"
+
+  const textMD = fetchMDfile(URL)
+  textMD.then(response => response.text())
+  .then(text => {
+
+    converter = new showdown.Converter(),
+    html = converter.makeHtml(text);
+
+    componentContent.innerHTML = html;
+
+  })
+  .catch(error => {
+    //handle error
+  });
+
+}
 
 // load project to webpage
 function loadProjectToWebPage(data)
@@ -22,6 +52,8 @@ function loadProjectToWebPage(data)
 
             // set thumbnail image to image on the webpage
             document.getElementById("thumbNailImage").src = comp["imageLink"];
+
+            loadMarkDownToWebPage(comp["componentID"])
 
           }
         }
